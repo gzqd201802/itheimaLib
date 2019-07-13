@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>测试Zepto方法</title>
+    <style>
+        .box{
+            border: 1px solid #000;
+            width: 100px;
+            height: 100px;
+        }
+        .style01{
+            background-color: pink;
+            width: 200px;
+            height: 200px;
+        }
+    </style>
+</head>
+<body>
+    <input id="btn" class="btn" name="btn" type="button" value="按钮">
+    <div id="box" class="box">盒子</div>
+</body>
+</html>
+<script src="./lib/zepto.js"></script>
+
+<script>
+    // 测试输出 $ 所有方法
+    console.log($);
+    console.dir($);
+    
+    // 选择器测试
+    // debugger;
+    // var $box = $("#box");
+    var $box = $("div.box");   // querySelectorAll()
+
+    console.log($box);
+    
+    debugger;
+    $.each()
+
+    // 方法测试
+    // addClass()    可添加一个类或者多个类
+    // debugger;
+    // $box.addClass("style01 style02");
+
+    // // removeClass()   可移除一个类或者多个类
+    // $box.removeClass("box");
+
+    // // toggleClass();
+
+    // // 测试方法 on 
+    // // debugger;
+    // $box.on("click",function(){
+    //     alert("事件绑定成功");
+    // });
+
+
+
+</script>
