@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style> 
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        ul {
+            list-style: none;
+        }
+        .test-nav {
+            width: 260px;
+            position: absolute;
+            left: 100px;
+            top: 100px;
+        }
+    </style>
+    <link rel="stylesheet" href="./plugins/css/bootstrap.css">
+</head>
+
+<body>
+    <div class="test-nav">
+        <div id="collapseContainer" role="tablist" aria-multiselectable="true">
+            <ul class="card">
+                <li class="card-header" role="tab" id="section1">
+                    <a data-toggle="collapse" data-parent="#collapseContainer" href="#content1" aria-expanded="true"
+                        aria-controls="content1">
+                        Section 1
+                    </a>
+                    <ul id="content1" class="collapse in" role="tabpanel" aria-labelledby="section1">
+                        <li class="card-body">
+                            <a data-toggle="collapse" data-parent="#content1" href="#" aria-expanded="true" >
+                                content 1
+                            </a>
+                        </li>
+                        <li class="card-body">
+                            <a data-toggle="collapse" data-parent="#content1" href="#" aria-expanded="true" >
+                                content 2
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="card-header" role="tab" id="section2">
+                    <a data-toggle="collapse" data-parent="#collapseContainer" href="#content2" aria-expanded="true"
+                        aria-controls="content1">
+                        Section 2
+                    </a>
+                    <ul id="content2" class="collapse in" role="tabpanel" aria-labelledby="section2">
+                        <li class="card-body">
+                            <a data-toggle="collapse" data-parent="#content2" href="#" aria-expanded="true" >
+                                content 3
+                            </a>
+                        </li>
+                        <li class="card-body">
+                            <a data-toggle="collapse" data-parent="#content2" href="#" aria-expanded="true" >
+                                content 4
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="test-modal">
+        <input type="button" class="modal-btn" value="弹框">
+        <!-- Modal -->
+        <div class="modal fade" id="modelId" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                        <div class="modal-header">
+                                <h5 class="modal-title">这是一个标题</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                            </div>
+                    <div class="modal-body">
+                        <div class="container-fluid">
+                            提示信息
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
+                        <button type="button" class="btn btn-primary">保存</button>
+                    </div>
+                </div>
+            </div>
+        </div>        
+       
+    </div>
+</body>
+<script src="./lib/hm.js"></script>
+<script src="./plugins/js/jquery.collapse-modal.js"></script>
+<script>
+$(function(){
+    $("#collapseContainer").collapse();
+
+    $(".modal-btn").on('click',function(){
+        $('#modelId').modal();
+        
+    })
+});
+</script>
+
+</html>

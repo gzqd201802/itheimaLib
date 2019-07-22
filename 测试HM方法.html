@@ -40,9 +40,9 @@
     <input type="button" value="按钮" id="btn2">
     <ul id="parent">
         <li>第1个li</li>
-        <li>第2个li</li>
+        <li class="list-item">第2个li</li>
         <li>第3个li</li>
-        <li>第4个li</li>
+        <li class="list-item">第4个li</li>
         <li>第5个li</li>
     </ul>
 </body>
@@ -184,16 +184,27 @@
     $(function () {
         console.log(123);
         $('#btn1').on('click', function () {
-            $('#box02').hide(3000, function () {
-                console.log('ok2');
+            // $('#box02').hide(3000, function () {
+            //     console.log('ok2');
+            // });
+            $('#box02').slideUp(10000,function(){
+                console.log(this);
             });
         });
 
         $("#btn2").on('click', function () {
-            $('#box02').show(3000, function () {
-                console.log('ok');
+            // $('#box02').show(3000, function () {
+            //     console.log('ok');
+            // });
+            $('#box02').slideDown(10000, function () {
+                $(this).css('overflow','');
+                console.log(this);
             });
         })
+
+
+        // console.log($('#parent').children('.list-item'));
+        console.log($('#parent').find('.list-item'));
     });
 
 
