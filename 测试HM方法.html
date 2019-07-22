@@ -11,6 +11,7 @@
             border: 1px solid #000;
             width: 100px;
             height: 100px;
+            background-color: green;
             position: relative;
         }
 
@@ -30,6 +31,19 @@
     <input id="btn" class="btn" name="btn" type="button" value="按钮" />
     <div id="box01" class="box">盒子1</div>
     <div id="box02" class="box">盒子2</div>
+    <hr>
+    <form action="#" id="form">
+        <input type="text" name="userName">
+        <input type="password" name="password">
+    </form>
+    <input type="button" value="按钮" id="btn">
+    <ul id="parent">
+        <li>第1个li</li>
+        <li>第2个li</li>
+        <li>第3个li</li>
+        <li>第4个li</li>
+        <li>第5个li</li>
+    </ul>
 </body>
 
 </html>
@@ -38,118 +52,151 @@
 <!-- <script src="./lib/sprint.js"></script> -->
 <script src="./lib/hm.js"></script>
 <script>
-    // 测试输出 $ 所有方法
-    console.log($);
-    console.dir($);
+    // // 测试输出 $ 所有方法
+    // console.log($);
+    // console.dir($);
 
-    // 选择器测试
-    // debugger;
-    // var $box = $("#box");
-    var $box = $("div.box"); // querySelectorAll()
+    // // 选择器测试
+    // // debugger;
+    // // var $box = $("#box");
+    // var $box = $("div.box"); // querySelectorAll()
 
-    // 初始化成功，
-    // dom  集合
-    // length 长度
-    // selector 选择器
-    console.log($box);
+    // // 初始化成功，
+    // // dom  集合
+    // // length 长度
+    // // selector 选择器
+    // console.log($box);
 
 
-    // debugger;
-    // each 方法
-    $box.each(function (item, index) {
-        console.log(item, index);
+    // // debugger;
+    // // each 方法
+    // $box.each(function (item, index) {
+    //     console.log(item, index);
+    // });
+
+    // // debugger;
+    // // 添加类成功，内部遍历
+    // $box.addClass("style01").addClass("style02");
+    // var hasClassRes = $box.hasClass("box");
+    // console.log("hasClassRes", hasClassRes);
+
+    // // debugger;
+    // // $.each() 遍历数组
+    // $.each([11, 22, 33, 44], function (index, item) {
+    //     // 测试遍历是否能退出
+    //     if (index === 2) return false;
+    //     // 输出遍历结果
+    //     console.log(index, item);
+    // });
+    // // $.each() 遍历对象
+    // $.each({ name: "小明", age: 18 }, function (key, value) {
+    //     // 测试遍历是否能退出
+    //     if (key === "age") return false;
+    //     // 输出遍历结果
+    //     console.log(key, value);
+    // });
+    // // 遍历 Init 暂未实现
+
+    // // .get() 方法
+    // var resDom = $box.get(0);
+    // console.log("get方法获取DOM元素", resDom);
+
+    // // debugger;
+    // // .attr() 方法测试
+    // var attrRes =
+    //     $box.
+    //         // 单个属性设置
+    //         attr("title", "title提示文字")
+    //         // 多个属性设置
+    //         .attr({
+    //             "data-index": 1,
+    //             style: "width:400px"
+    //         })
+    //         // 获取属性
+    //         .attr("title");
+
+    // console.log("attr返回值", attrRes);
+
+    // // debugger;
+    // // css 方法
+    // var cssRes =
+    //     $box
+    //         // 单属性修改，带 px
+    //         .css("padding", 20)
+    //         // 单属性修改，不带 px 的属性
+    //         .css("opacity", .5)
+    //         // 单属性修改，字符串
+    //         .css("height", "50px")
+    //         // 多属性修改
+    //         .css({
+    //             margin: 10,
+    //             // zIndex 生效
+    //             zIndex: 100,
+    //             // "z-index": 99,
+    //             // 行高设置可以生效
+    //             "line-height": 2,
+    //             // lineHeight 生效
+    //             // lineHeight: 2
+    //         })
+    //         // .css("line-height");
+    //         .css("lineHeight");
+    // console.log(cssRes);
+
+    // // html() 方法测试
+    // var resHtml =
+    //     $box
+    //         // 设置
+    //         .html("<h1>动态修改的内容</h1>")
+    //         // 获取
+    //         .html();
+    // console.log("resHtml", resHtml);
+
+    // // text() 方法测试
+    // var resText =
+    //     $box
+    //         // 设置
+    //         .text("<h1>动态修改的内容</h1>")
+    //         // 获取
+    //         .text();
+    // console.log("restext", resText);
+
+    // // debugger;
+    // // $box.hide().show();
+    // $box.toggle().toggle();
+
+
+    // // 测试 on 注册事件
+    // $('#btn').on('click',function(){
+    //     // console.log(this);
+    //     // alert(123);
+
+    //     // 表单序列化
+    //     let res = $("#form").serialize();
+    //     console.log(res);
+    // })
+
+    // // 事件委托 
+    // $("#parent").on('click','li',function(){
+    //     console.log(this);
+    // });
+
+    $(function () {
+        console.log(123);
+        $('.btn').on('click', function () {
+            $('#box01').animate({
+                width: 500,
+                height: 300,
+                opacity: 0.4
+            }, 3000, function () {
+                console.log('done1');
+            }).animate({
+                width: 100,
+                height: 200,
+                opacity: 0.7
+            }, 3000);
+        });
     });
 
-    // debugger;
-    // 添加类成功，内部遍历
-    $box.addClass("style01").addClass("style02");
-    var hasClassRes = $box.hasClass("box");
-    console.log("hasClassRes", hasClassRes);
-
-    // debugger;
-    // $.each() 遍历数组
-    $.each([11, 22, 33, 44], function (index, item) {
-        // 测试遍历是否能退出
-        if (index === 2) return false;
-        // 输出遍历结果
-        console.log(index, item);
-    });
-    // $.each() 遍历对象
-    $.each({ name: "小明", age: 18 }, function (key, value) {
-        // 测试遍历是否能退出
-        if (key === "age") return false;
-        // 输出遍历结果
-        console.log(key, value);
-    });
-    // 遍历 Init 暂未实现
-
-    // .get() 方法
-    var resDom = $box.get(0);
-    console.log("get方法获取DOM元素", resDom);
-
-    // debugger;
-    // .attr() 方法测试
-    var attrRes =
-        $box.
-            // 单个属性设置
-            attr("title", "title提示文字")
-            // 多个属性设置
-            .attr({
-                "data-index": 1,
-                style: "width:400px"
-            })
-            // 获取属性
-            .attr("title");
-
-    console.log("attr返回值", attrRes);
-
-    // debugger;
-    // css 方法
-    var cssRes =
-        $box
-            // 单属性修改，带 px
-            .css("padding", 20)
-            // 单属性修改，不带 px 的属性
-            .css("opacity", .5)
-            // 单属性修改，字符串
-            .css("height", "50px")
-            // 多属性修改
-            .css({
-                margin: 10,
-                // zIndex 生效
-                zIndex: 100,
-                // "z-index": 99,
-                // 行高设置可以生效
-                "line-height": 2,
-                // lineHeight 生效
-                // lineHeight: 2
-            })
-            // .css("line-height");
-            .css("lineHeight");
-    console.log(cssRes);
-
-    // html() 方法测试
-    var resHtml =
-        $box
-            // 设置
-            .html("<h1>动态修改的内容</h1>")
-            // 获取
-            .html();
-    console.log("resHtml", resHtml);
-
-    // text() 方法测试
-    var resText =
-        $box
-            // 设置
-            .text("<h1>动态修改的内容</h1>")
-            // 获取
-            .text();
-    console.log("restext", resText);
-
-    // debugger;
-    // $box.hide().show();
-    $box.toggle().toggle();
 
 
-    // 测试
 </script>
