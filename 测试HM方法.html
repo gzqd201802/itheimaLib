@@ -13,6 +13,7 @@
             height: 100px;
             background-color: green;
             position: relative;
+            display: none;
         }
 
         .style01 {
@@ -28,7 +29,7 @@
 </head>
 
 <body>
-    <input id="btn" class="btn" name="btn" type="button" value="按钮" />
+    <input id="btn1" class="btn" name="btn" type="button" value="按钮" />
     <div id="box01" class="box">盒子1</div>
     <div id="box02" class="box">盒子2</div>
     <hr>
@@ -36,7 +37,7 @@
         <input type="text" name="userName">
         <input type="password" name="password">
     </form>
-    <input type="button" value="按钮" id="btn">
+    <input type="button" value="按钮" id="btn2">
     <ul id="parent">
         <li>第1个li</li>
         <li>第2个li</li>
@@ -182,19 +183,17 @@
 
     $(function () {
         console.log(123);
-        $('.btn').on('click', function () {
-            $('#box01').animate({
-                width: 500,
-                height: 300,
-                opacity: 0.4
-            }, 3000, function () {
-                console.log('done1');
-            }).animate({
-                width: 100,
-                height: 200,
-                opacity: 0.7
-            }, 3000);
+        $('#btn1').on('click', function () {
+            $('#box02').hide(3000, function () {
+                console.log('ok2');
+            });
         });
+
+        $("#btn2").on('click', function () {
+            $('#box02').show(3000, function () {
+                console.log('ok');
+            });
+        })
     });
 
 
