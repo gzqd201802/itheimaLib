@@ -16,7 +16,7 @@
 </head>
 
 <body>
-    <div class="box" hidden></div>
+    <div class="box"></div>
 </body>
 
 </html>
@@ -28,6 +28,19 @@
     //     $('.box').fadeIn(3000)
     // }, 4000);
 
-    $('.box').append('<ul><li>1</li></ul>');
+    // $('.box').append('<ul><li>1</li></ul>');
+
+    $('.box').on('click',function(){
+        $.ajax({
+            type : 'post',
+            url : 'http://127.0.0.1:8989/postjson',
+            data : {
+                a : 1,b:2
+            },
+            success : function(res){
+                console.log(res);
+            }
+        });
+    });
 
 </script>
