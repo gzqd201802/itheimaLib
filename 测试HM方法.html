@@ -16,31 +16,18 @@
 </head>
 
 <body>
-    <div class="box"></div>
+    <input type="button" id="btn1" value="111111111">
+    <input type="button" id="btn2" value="222222222">
 </body>
 
 </html>
 <script src="./lib/hm.js"></script>
 <script>
-    // $('.box').removeAttr('hidden');
-    // $('.box').fadeOut(3000);
-    // setTimeout(() => {
-    //     $('.box').fadeIn(3000)
-    // }, 4000);
-
-    // $('.box').append('<ul><li>1</li></ul>');
-
-    $('.box').on('click',function(){
-        $.ajax({
-            type : 'post',
-            url : 'http://127.0.0.1:8989/postjson',
-            data : {
-                a : 1,b:2
-            },
-            success : function(res){
-                console.log(res);
-            }
-        });
+    $('#btn2').on('click',function(){
+        console.log(this.value);
     });
 
+    $("#btn1").on('click',function(){
+        $("#btn2").trigger('click');
+    })
 </script>
